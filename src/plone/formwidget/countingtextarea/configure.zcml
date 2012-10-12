@@ -1,0 +1,39 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
+    xmlns:grok="http://namespaces.zope.org/grok"
+    i18n_domain="plone.formwidget.countingtextarea">
+
+  <includeDependencies package="." />
+
+  <grok:grok package="." />
+
+  <class class=".counting_textarea.CountingTextAreaWidget">
+    <require
+        permission="zope.Public"
+        interface="z3c.form.interfaces.ITextAreaWidget"
+        />
+  </class>
+
+  <z3c:widgetTemplate
+      mode="display"
+      widget=".counting_textarea.ICountingTextAreaWidget"
+      layer="z3c.form.interfaces.IFormLayer"
+      template="counting_textarea_display.pt"
+      />
+
+  <z3c:widgetTemplate
+      mode="input"
+      widget=".counting_textarea.ICountingTextAreaWidget"
+      layer="z3c.form.interfaces.IFormLayer"
+      template="counting_textarea_input.pt"
+      />
+
+  <z3c:widgetTemplate
+      mode="hidden"
+      widget=".counting_textarea.ICountingTextAreaWidget"
+      layer="z3c.form.interfaces.IFormLayer"
+      template="counting_textarea_hidden.pt"
+      />
+
+</configure>
