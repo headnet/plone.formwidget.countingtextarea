@@ -2,9 +2,16 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       tal:omit-tag="">
 
-<input type="hidden" tal:attributes="id string:${view/id}-max-length;
-                                     name string:${view/id}-max-length;
-                                     value string:${view/field/max_length}"/>
+<script type="text/javascript">
+if(textCounter == "undefined") {
+  function textCounter(field,cntfield,maxlimit) {
+    if (field.value.length > maxlimit)
+      field.value = field.value.substring(0, maxlimit);
+    else
+      cntfield.value = maxlimit - field.value.length;
+  }
+}
+</script>
 
 <textarea
    id="" name="" class="" cols="" rows=""
