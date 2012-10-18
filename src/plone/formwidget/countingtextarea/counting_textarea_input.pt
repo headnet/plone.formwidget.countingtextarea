@@ -3,8 +3,8 @@
       tal:omit-tag="">
 
 <script type="text/javascript">
-if(textCounter == "undefined") {
-  function textCounter(field,cntfield,maxlimit) {
+if(typeof window.textCounter != "function") {
+  window.textCounter = function textCounter(field,cntfield,maxlimit) {
     if (field.value.length > maxlimit)
       field.value = field.value.substring(0, maxlimit);
     else
@@ -30,8 +30,8 @@ if(textCounter == "undefined") {
                    onmousemove view/onmousemove;
                    onmouseout view/onmouseout;
                    onkeypress view/onkeypress;
-                   onkeydown string:textCounter(this,jQuery('#${view/id}-count').get(0),${view/field/max_length});
-                   onkeyup string:textCounter(this,jQuery('#${view/id}-count').get(0),${view/field/max_length});
+                   onkeydown string:window.textCounter(this,jQuery('#${view/id}-count').get(0),${view/field/max_length});
+                   onkeyup string:window.textCounter(this,jQuery('#${view/id}-count').get(0),${view/field/max_length});
                    disabled view/disabled;
                    tabindex view/tabindex;
                    onfocus view/onfocus;
