@@ -1,14 +1,10 @@
 import os
 import sys
 
-reload(sys).setdefaultencoding("UTF-8")
-
 from setuptools import setup, find_packages
 
-
 def read(*pathnames):
-    return open(os.path.join(os.path.dirname(__file__), *pathnames)).read().\
-           decode('utf-8')
+    return open(os.path.join(os.path.dirname(__file__), *pathnames)).read()
 
 version = '1.0-rc1'
 
@@ -30,7 +26,7 @@ setup(name='plone.formwidget.countingtextarea',
       license="GPLv2+",
       packages=find_packages('src'),
       package_dir={'': 'src'},
-      namespace_packages=['plone'],
+      namespace_packages=['plone', 'plone.formwidget'],
       include_package_data=True,
       zip_safe=False,
       install_requires=[

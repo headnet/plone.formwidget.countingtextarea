@@ -11,8 +11,8 @@ from z3c.form.browser import widget
 class ICountingTextAreaWidget(interfaces.ITextAreaWidget):
     pass
 
+@zope.interface.implementer_only(ICountingTextAreaWidget)
 class CountingTextAreaWidget(widget.HTMLTextAreaWidget, Widget):
-    zope.interface.implementsOnly(ICountingTextAreaWidget)
 
     klass = u'textarea-widget'
     value = u''

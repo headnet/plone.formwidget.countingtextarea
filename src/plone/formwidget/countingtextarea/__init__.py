@@ -1,1 +1,1 @@
-from counting_textarea import CountingTextAreaFieldWidget
+from plone.formwidget.countingtextarea.counting_textarea import CountingTextAreaFieldWidget
